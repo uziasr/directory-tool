@@ -1,6 +1,7 @@
 import os
 import time
 from collections import namedtuple
+
 class DirectoryPal():
 
     def __init__(self, directory=None):
@@ -10,31 +11,6 @@ class DirectoryPal():
         else:
             self.directory = directory
         self.files = list(os.listdir(self.directory))
-
-    def file_deco(func):
-        #print('hello')
-        def print_dict(x):
-            dict_func = func(x)
-            print('File Type:  File Quantity: ')
-            for key, value in dict_func.items():
-                print("{}\t\t{}".format(key,value))
-                if key=='':
-                    print("{}\t\t{}".format('None',value))
-            return dict_func
-        return print_dict
-
-    @file_deco
-    def file_types(self,):
-        """returns a dictionary of file type and counts"""
-        """broken"""
-        type_count = {}
-        for file in self.files:
-            file_type = file[file.find('.')::][1::]
-            if file_type not in type_count:
-                type_count[file_type] = 1
-            else:
-                type_count[file_type]+=1
-        return type_count
 
     def update_dir(self, path):
         self.directory = path
@@ -96,8 +72,3 @@ class DirectoryPal():
 
     def __str__(self):
         return('\nDirectoryPal Object\nCurrently Working in: {}\nWorking With: {}'.format(self.directory, self.files))
-
-b = DirectoryPal()
-current_dir_info = b.dir_info()
-for tup in current_dir_info:
-    print(tup)
