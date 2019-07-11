@@ -1,4 +1,4 @@
-The DirectoryPal class can format file/folder names using string functions in format. 
+The DirectoryPal class can format file/folder names using string functions.
 This allows python to do all the boring work for you. 
 More features to be added.
 
